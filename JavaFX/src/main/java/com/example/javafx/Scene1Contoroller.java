@@ -4,6 +4,7 @@ package com.example.javafx;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import javafx.fxml.FXMLLoader;
@@ -17,13 +18,32 @@ import java.io.IOException;
 
 public class Scene1Contoroller {
     @FXML
-    ImageView myImageView;
-    Button myButton;
+    private Label myLabel;
+    @FXML
+    private TextField myTextField;
+    @FXML
+    private Button myButton;
 
- Image myImage = new Image(getClass().getResourceAsStream("Damage_Potion.jpg"));
+    int age;
 
-    public void displayImage() {
-       // myImageView.setImage(myImage);
+    public void submit(ActionEvent event) {
+
+        try {
+            age = Integer.parseInt(myTextField.getText());
+
+            if(age >= 18) {
+                myLabel.setText("You are now signed up!");
+            }
+            else {
+                myLabel.setText("You must be 18+");
+            }
+        }
+        catch (NumberFormatException e){
+            myLabel.setText("enter only numbers plz");
+        }
+        catch (Exception e) {
+            myLabel.setText("error");
+        }
+
     }
-
 }
