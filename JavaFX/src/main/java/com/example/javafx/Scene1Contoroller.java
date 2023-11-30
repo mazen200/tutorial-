@@ -1,41 +1,41 @@
 package com.example.javafx;
 
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 
 public class Scene1Contoroller implements Initializable {
+    @FXML
+    private Label myLabel;
 
-        @FXML
-        private Label myLabel;
+    @FXML
+    private Slider mySlider;
 
-        @FXML
-        private ChoiceBox<String> myChoiceBox;
+    int myTemperature;
 
-        private String[] food = {"pizza","sushi","ramen"};
+    @Override
+    public void initialize(URL url, ResourceBundle resources) {
 
-        @Override
-        public void initialize(URL arg0, ResourceBundle arg1) {
+        myTemperature = (int) mySlider.getValue();
+        myLabel.setText(Integer.toString(myTemperature) + "°C");
 
-            myChoiceBox.getItems().addAll(food);
-            myChoiceBox.setOnAction(this::getFood);
+        mySlider.valueProperty().addListener(new ChangeListener<Number>() {
 
-        }
+            @Override
+            public void changed(ObservableValue<? extends Number> observable, Number oldNumber, Number newNumber) {
 
-        public void getFood(ActionEvent event) {
+                myTemperature = (int) mySlider.getValue();
+                myLabel.setText(Integer.toString(myTemperature) + "°C");
 
-            String myFood = myChoiceBox.getValue();
-            myLabel.setText(myFood);
-        }
-
+            }
+        });
     }
+}
