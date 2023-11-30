@@ -1,28 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafx.Scene1Contoroller">
    <children>
-      <Label fx:id="myLabel" layoutX="276.0" layoutY="83.0" text="On">
+      <Label fx:id="myLabel" layoutX="196.0" layoutY="42.0" prefHeight="106.0" prefWidth="187.0" text="Label">
          <font>
-            <Font size="25.0" />
+            <Font size="42.0" />
          </font>
       </Label>
-      <ImageView fx:id="myImageView" fitHeight="26.0" fitWidth="34.0" layoutX="276.0" layoutY="144.0" pickOnBounds="true" smooth="false">
-         <image>
-            <Image url="@../../../Damage_Potion.png" />
-         </image>
-      </ImageView>
-      <CheckBox fx:id="myCheckBox" layoutX="247.0" layoutY="213.0" mnemonicParsing="false" onAction="#change" prefHeight="36.0" prefWidth="122.0" text="ON/OFF">
+      <RadioButton fx:id="rButton1" layoutX="37.0" layoutY="192.0" mnemonicParsing="false" onAction="#getFood" text="pizza">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold Italic" size="23.0" />
          </font>
-      </CheckBox>
+         <toggleGroup>
+            <ToggleGroup fx:id="radio" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="rButton2" layoutX="218.0" layoutY="192.0" mnemonicParsing="false" onAction="#getFood" text="Sushi" toggleGroup="$radio">
+         <font>
+            <Font name="System Bold Italic" size="23.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="rButton3" layoutX="400.0" layoutY="192.0" mnemonicParsing="false" onAction="#getFood" text="كبده" toggleGroup="$radio">
+         <font>
+            <Font name="System Bold Italic" size="23.0" />
+         </font>
+      </RadioButton>
    </children>
 </AnchorPane>
