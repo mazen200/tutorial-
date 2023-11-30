@@ -4,6 +4,7 @@ package com.example.javafx;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
@@ -18,32 +19,24 @@ import java.io.IOException;
 
 public class Scene1Contoroller {
     @FXML
+    private CheckBox myCheckBox;
+    @FXML
     private Label myLabel;
     @FXML
-    private TextField myTextField;
-    @FXML
-    private Button myButton;
+    private ImageView myImageView;
 
-    int age;
+    Image myImage1 = new Image("Biochemical_Icon.png");
+    Image myImage2 = new Image("Damage_Potion.png");
 
-    public void submit(ActionEvent event) {
+    public void change(ActionEvent event) {
 
-        try {
-            age = Integer.parseInt(myTextField.getText());
-
-            if(age >= 18) {
-                myLabel.setText("You are now signed up!");
-            }
-            else {
-                myLabel.setText("You must be 18+");
-            }
+        if(myCheckBox.isSelected()) {
+            myLabel.setText("ON");
+            myImageView.setImage(myImage1);
         }
-        catch (NumberFormatException e){
-            myLabel.setText("enter only numbers plz");
+        else {
+            myLabel.setText("OFF");
+            myImageView.setImage(myImage2);
         }
-        catch (Exception e) {
-            myLabel.setText("error");
-        }
-
     }
 }
