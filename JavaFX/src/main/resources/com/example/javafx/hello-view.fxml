@@ -1,35 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafx.Scene1Contoroller">
    <children>
-      <Label fx:id="myLabel" layoutX="196.0" layoutY="42.0" prefHeight="106.0" prefWidth="187.0" text="Label">
+      <DatePicker fx:id="myDatePicker" layoutX="191.0" layoutY="187.0" onAction="#getDate" />
+      <Label fx:id="myLabel" layoutX="179.0" layoutY="103.0" prefHeight="47.0" prefWidth="220.0" text="Label">
          <font>
-            <Font size="42.0" />
+            <Font size="30.0" />
          </font>
       </Label>
-      <RadioButton fx:id="rButton1" layoutX="37.0" layoutY="192.0" mnemonicParsing="false" onAction="#getFood" text="pizza">
-         <font>
-            <Font name="System Bold Italic" size="23.0" />
-         </font>
-         <toggleGroup>
-            <ToggleGroup fx:id="radio" />
-         </toggleGroup>
-      </RadioButton>
-      <RadioButton fx:id="rButton2" layoutX="218.0" layoutY="192.0" mnemonicParsing="false" onAction="#getFood" text="Sushi" toggleGroup="$radio">
-         <font>
-            <Font name="System Bold Italic" size="23.0" />
-         </font>
-      </RadioButton>
-      <RadioButton fx:id="rButton3" layoutX="400.0" layoutY="192.0" mnemonicParsing="false" onAction="#getFood" text="كبده" toggleGroup="$radio">
-         <font>
-            <Font name="System Bold Italic" size="23.0" />
-         </font>
-      </RadioButton>
    </children>
 </AnchorPane>
