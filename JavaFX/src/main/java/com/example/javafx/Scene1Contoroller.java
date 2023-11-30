@@ -4,21 +4,21 @@ package com.example.javafx;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 
 public class Scene1Contoroller {
     @FXML
-    private DatePicker myDatePicker;
+    private Pane myPane;
     @FXML
-    private Label myLabel;
+    private ColorPicker myColorPicker;
 
-    public void getDate(ActionEvent event) {
-
-        LocalDate myDate = myDatePicker.getValue();
-        String myFormattedDate = myDate.format(DateTimeFormatter.ofPattern("dd-MMM-yyyy"));
-        myLabel.setText(myFormattedDate);
+    public void changeColor(ActionEvent event) {
+        Color myColor = myColorPicker.getValue();
+        myPane.setBackground(new Background(new BackgroundFill(myColor, null, null)));
     }
 }
